@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>🔐 Image Steganography Tool</h1>
+    <div class="container">
+        <h2>Encode a Secret Message</h2>
+        <form id="encodeForm" enctype="multipart/form-data">
+            <input type="file" id="encodeImage" name="image" required>
+            <input type="password" id="message" name="message" placeholder="Enter secret message" required>
+            <input type="password" id="secretKey" name="secret_key" placeholder="Enter Secret Key" required>
+            <button type="submit">Encode & Download</button>
+        </form>
+
+        <h2>Decode a Hidden Message</h2>
+        <form id="decodeForm" enctype="multipart/form-data">
+            <input type="file" id="decodeImage" name="image" required>
+            <input type="password" id="decodeKey" name="secret_key" placeholder="Enter Secret Key" required>
+            <button type="submit">Decode</button>
+        </form>
+
+        <h2>Decoded Message:</h2>
+        <input type="password" id="decodedMessage" readonly>
+        <button onclick="toggleMessage()">Show/Hide</button>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
